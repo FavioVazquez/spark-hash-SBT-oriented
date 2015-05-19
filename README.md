@@ -1,27 +1,14 @@
+Disclaimer
+==============================
+This is my version of mrsqueeze's spark-hash but SBT oriented, all the credit of code and logic goes to him. This uses the sbt environment instead of the maven POM's environment.
+The original repo is in @mrsqueeze github, https://github.com/mrsqueeze/spark-hash
+
+
 spark-hash
 ==============================
 
 Locality sensitive hashing for [Apache Spark](http://spark.apache.org/).
 This implementation was largely based on the algorithm described in chapter 3 of [Mining of Massive Datasets](http://mmds.org/) with some modifications for use in spark.
-
-Maven Central Repository
---------------
-spark-hash is on maven central and is accessible at:
-
-	<dependency>
-       <groupId>com.invincea</groupId>
-       <artifactId>spark-hash</artifactId>
-       <version>0.1.2</version>
-    </dependency>
-
-Building
---------------
-spark-hash can be built using maven
-
-	> mvn clean package
-	
-**Note: to use the scripts included in this release, make sure $SPARK_HOME is set**
-
 
 Example Data
 -----
