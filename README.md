@@ -147,10 +147,18 @@ Implementation Details
 
 Implementation of LSH follows the rough steps
 
-1. minhash each vector some number of times. The number of times to hash is an input parameter. The hashing function is defined in Hasher. Essentially each element of the input vector is hashed and the minimum hash value for the vector is returned. Minhashing produces a set of signatures for each vector.
-2. Chop up each vector's minhash signatures into bands where each band contains an equal number of signatures. Bands with a greater number of signatures will produce clusters with *greater* similarity. A greater number of bands will increase the probabilty that similar vector signatures  hash to the same value.
-3. Order each of the vector bands such that for each band the vector's data for that band are grouped together. 
-4. Hash each band and group similar values. These similar values for a given band that hash to the same value are added to the result set.
+1. minhash each vector some number of times. The number of times to hash is an input parameter.
+ The hashing function is defined in spark.hash.Hasher. Essentially each element of the input vector is 
+ hashed and the minimum hash value for the vector is returned. Minhashing produces a set of 
+ signatures for each vector.
+2. Chop up each vector's minhash signatures into bands where each band contains an equal 
+number of signatures. Bands with a greater number of signatures will produce clusters with 
+*greater* similarity. A greater number of bands will increase the probabilty that similar 
+vector signatures  hash to the same value.
+3. Order each of the vector bands such that for each band the vector's data for that
+ band are grouped together. 
+4. Hash each band and group similar values. These similar values for a given band 
+that hash to the same value are added to the result set.
 5. Optionally filter results. An example operation would be to filter out  singleton sets.
 
 #### Example
@@ -162,7 +170,8 @@ Input data
 3. [80, 2121, 3306, 3389, 8080, 8443]
 4. [13, 17, 21, 23, 80, 137, 443, 3306, 3389]
 
-Let's hash each vector 1000 times. To do this we'll need to create 1000 hash functions and minhash each vector 1000 times.
+Let's hash each vector 1000 times. To do this we'll need to create 1000 hash functions and
+ minhash each vector 1000 times.
 
 1. 1000 minhash signatures
 2. 1000 minhash signatures
