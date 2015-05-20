@@ -44,7 +44,7 @@ To do so use (to place it in the root folder):
 	hadoop fs -put data/ /
 	
 5.- If you are using Spark in cluster (with Mesos) mode you can use spark-submit to run the code (in the examples
-I give an example with Apache Mesos a generic domain, please change the master according to your
+I give an example with Apache Mesos my domain and also my HDFS domain, please change the master according to your
 master domain. 
 
 	spark-submit target/scala-2.10/spark-hash.jar
@@ -62,15 +62,25 @@ uploaded your spark dist to HDFS, and without it if you have not:
 
 Example Data
 -----
-We executed some nmap probes and now would like to group IP addresses with similar sets of exposed ports. An small example of this dataset has been provided in data/sample.dat for illustration. 
+We executed some nmap probes and now would like to group IP addresses with similar sets of 
+exposed ports. An small example of this dataset has been provided in data/sample.dat for 
+illustration. 
 
-As part of the preprocessing which was performed on nmap xml files, we flattened IP addresses with identical port sets. The flattening did not factor the time when the port was open. 
-This processing resulted in the following dataset which is highlighted with the Spark REPL in local mode:
+As part of the preprocessing which was performed on nmap xml files, we flattened IP addresses
+with identical port sets. The flattening did not factor the time when the port was open. 
 
-	bash$ ./shell_local.sh
-	scala> val port_set : org.apache.spark.rdd.RDD[(List[Int], Int)] = sc.objectFile("data/sample.dat")
+To run SparkHashTry you have to specify the class in the spark-submit (if running in cluster mode)
+
+	spark-submit --class="SparkHashTry" target/scala-2.10/spark-hash.jar
 	
-	scala> port_set.take(5).foreach(println)
+
+In the SparkHashTry example we explore the data, and later we will use the Hasher and LSH to
+make use of the great mrsqueeze code.
+	
+	port_set.take(5).foreach(println)
+	
+Result
+
 	(List(21, 23, 443, 8000, 8080),1)
 	(List(80, 3389, 49152, 49153, 49154, 49155, 49156, 49157),9)
 	(List(21, 23, 80, 2000, 3000),13)
