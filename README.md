@@ -77,9 +77,10 @@ To run SparkHashTry you have to specify the class in the spark-submit (if runnin
 In the SparkHashTry example we explore the data, and later we will use the Hasher and LSH to
 make use of the great mrsqueeze code.
 	
+	val port_set: RDD[(List[Int],Int)] = sc.objectFile(Globals.masterHDFS+"/data/sample.dat")
 	port_set.take(5).foreach(println)
 	
-Result
+Result:
 
 	(List(21, 23, 443, 8000, 8080),1)
 	(List(80, 3389, 49152, 49153, 49154, 49155, 49156, 49157),9)
@@ -91,12 +92,15 @@ Each row in the RDD is a Tuple2 containing the open ports alone with the number 
 
 Count the RDD for the total dataset size:
 	
-	scala> port_set.count()
-	res1: Long = 261
+	  println(port_set.count())
+	 
+Result:
 
+	261
+	
 Count the total number of IP addresses that contributed to this dataset:
 
-	scala> port_set.map(x => x._2).reduce(_ + _)
+	port_set.map(x => x._2).reduce(_ + _)
 	res2: Int = 2273
 
 Show the top five port sets sorted by IP count:
