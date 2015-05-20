@@ -63,5 +63,7 @@ object OpenPortApp {
       writer.flush
       writer.close
       
+      sc.stop()
+
     }
 }

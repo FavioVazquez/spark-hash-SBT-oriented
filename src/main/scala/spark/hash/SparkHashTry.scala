@@ -43,8 +43,6 @@ def main(args: Array[String]) {
   port_set.sortBy(_._1.size,false).take(3).foreach(println)
 
 
-
-
-
+  sc.stop()
   }
 }
