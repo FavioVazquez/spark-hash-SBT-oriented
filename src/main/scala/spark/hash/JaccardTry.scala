@@ -14,6 +14,8 @@ object JaccardTry {
       //    .setMaster("local")
       .setMaster(Globals.masterSpark)
       .setAppName("Spark-Hash")
+      .set("spark.executor.memory", "10g")
+
     val sc = new SparkContext(conf)
 
     val port_set: RDD[(List[Int], Int)] = sc.objectFile(Globals.masterHDFS + "/data/sample.dat")
