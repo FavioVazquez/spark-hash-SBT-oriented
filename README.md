@@ -234,8 +234,7 @@ data load, requisite transforms, and parameter tuning. Also, for some datasets i
 practical to save all results to a local driver.
 
 - To run in local mode comment the setMaster(Globals.masterSpark) line and uncomment the 
-setMaster("local"). Then:
-
+setMaster("local"). To run in cluster mode, do the opposite (cluster mode is the default)
 
 		spark-submit --class="spark.hash.OpenPortApp" target/scala-2.10/spark-hash.jar hdfs://master.mcbo.mood.com.ve:8020/data/sample.dat
 
