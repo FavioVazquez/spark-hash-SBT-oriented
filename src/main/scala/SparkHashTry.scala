@@ -18,12 +18,27 @@ def main(args: Array[String]) {
 
 //  Print first five items
   port_set.take(5).foreach(println)
+  println("===========================")
 
 //  Count the RDD for the total dataset size:
   println(port_set.count())
+  println("===========================")
 
 //  Count the total number of IP addresses that contributed to this dataset:
   println(port_set.map(x => x._2).reduce(_ + _))
+  println("===========================")
+
+//  Show the top five port sets sorted by IP count:
+  port_set.sortBy(_._2,false).take(5).foreach(println)
+  println("===========================")
+
+//  Filter the dataset to drop port sets smaller than 2. Show the top 5 results:
+  val port_set_filtered = port_set.filter(tpl => tpl._1.size >= 2)
+  port_set_filtered.sortBy(_._2, false).take(5).foreach(println)
+  println("===========================")
+
+
+
 
   }
 }

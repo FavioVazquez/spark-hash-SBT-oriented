@@ -100,22 +100,31 @@ Result:
 	
 Count the total number of IP addresses that contributed to this dataset:
 
-	port_set.map(x => x._2).reduce(_ + _)
-	res2: Int = 2273
+	println(port_set.map(x => x._2).reduce(_ + _))
+
+Result:
+	
+	2273
 
 Show the top five port sets sorted by IP count:
 
-	scala> port_set.sortBy(_._2, false).take(5).foreach(println)
+	port_set.sortBy(_._2, false).take(5).foreach(println)
+	
+Result:
+	
 	(List(21, 23, 80),496)
 	(List(22, 53, 80),289)
 	(List(80, 443),271)
 	(List(80),228)
 	(List(22, 53, 80, 443),186)
 
-Filter the dataset to drop port sets smaller than 2. Show the top results:
+Filter the dataset to drop port sets smaller than 2. Show the top 5 results:
 
-	scala> val port_set_filtered = port_set.filter(tpl => tpl._1.size >= 2)
-	scala> port_set_filtered.sortBy(_._2, false).take(5).foreach(println)
+	val port_set_filtered = port_set.filter(tpl => tpl._1.size >= 2)
+	port_set_filtered.sortBy(_._2, false).take(5).foreach(println)
+	
+Result:
+
 	(List(21, 23, 80),496)
 	(List(22, 53, 80),289)
 	(List(80, 443),271)
