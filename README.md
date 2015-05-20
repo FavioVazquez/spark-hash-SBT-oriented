@@ -3,6 +3,8 @@ Disclaimer
 This is my version of mrsqueeze's spark-hash but SBT oriented, all the credit of code and logic goes to him. This uses the sbt environment instead of the maven's environment.
 The original repo is in @mrsqueeze github, https://github.com/mrsqueeze/spark-hash
 
+*Note* = In Globals.scala you should change the default domanins to your
+master spark domain (if using mesos) and your HDFS master domain. 
 
 spark-hash
 ==============================
@@ -234,7 +236,7 @@ practical to save all results to a local driver.
 - To run in local mode comment the setMaster(Globals.masterSpark) line and uncomment the 
 setMaster("local"). To run in cluster mode, do the opposite (cluster mode is the default)
 
-		spark-submit --class="spark.hash.OpenPortApp" target/scala-2.10/spark-hash.jar hdfs://master.mcbo.mood.com.ve:8020/data/sample.dat
+		spark-submit --class="spark.hash.OpenPortApp" target/scala-2.10/spark-hash.jar hdfs://yourdomain.com:8020/data/sample.dat
 
 Result:
 
@@ -242,7 +244,7 @@ Result:
 
 - To sample (80%) and spread over 8 partitions:
 
-		spark-submit --class="spark.hash.OpenPortApp" target/scala-2.10/spark-hash.jar hdfs://master.mcbo.mood.com.ve:8020/data/sample.dat 8 0.5
+		spark-submit --class="spark.hash.OpenPortApp" target/scala-2.10/spark-hash.jar hdfs://yourdomain.com:8020/data/sample.dat 8 0.5
 
 
 ### Finding similar sets for a new point
