@@ -17,7 +17,7 @@ SBT environment
 
 The steps to use this repo with SBT are the following:
 
-1.- Make sure you have the latest sbt installed. For Ubuntu and other Debian-based distributions
+1.- Make sure you have the latest sbt installed. For Ubuntu and other Debian-based distributions:
 
 Ubuntu and other Debian-based distributions use the DEB format, but usually you don’t install
 your software from a local DEB file. Instead they come with package managers both for the 
