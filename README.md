@@ -264,7 +264,8 @@ This is implemented in the JaccardTry.scala file, to run:
 	println(sim.count())
 	
 	sim.collect().foreach(println)
-	
+---
+
 Result:
 	
 	(9,List((65535,[21,22,23,80,2000,3389,8000],[1.0,1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,22,23,80,2000,3389],[1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,23,80,2000,8443],[1.0,1.0,1.0,1.0,1.0])))
