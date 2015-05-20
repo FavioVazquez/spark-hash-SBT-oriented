@@ -1,6 +1,6 @@
 Disclaimer
 ==============================
-This is my version of mrsqueeze's spark-hash but SBT oriented, all the credit of code and logic goes to him. This uses the sbt environment instead of the maven POM's environment.
+This is my version of mrsqueeze's spark-hash but SBT oriented, all the credit of code and logic goes to him. This uses the sbt environment instead of the maven's environment.
 The original repo is in @mrsqueeze github, https://github.com/mrsqueeze/spark-hash
 
 
