@@ -15,7 +15,7 @@ SBT environment
 
 The steps to use this repo with SBT are the following:
 
-1. Make sure you have the latest sbt installed. For Ubuntu and other Debian-based distributions
+1.- Make sure you have the latest sbt installed. For Ubuntu and other Debian-based distributions
 
 Ubuntu and other Debian-based distributions use the DEB format, but usually you don’t install
 your software from a local DEB file. Instead they come with package managers both for the 
@@ -26,40 +26,40 @@ hence the sudo).
 	echo "deb http://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
 	sudo apt-get update
 	sudo apt-get install sbt
-
-2. Add the Spark JAR to your project. To do this copy the JAR from your local Spark folder to
+	
+2.- Add the Spark JAR to your project. To do this copy the JAR from your local Spark folder to
 a folder in the project main tree. By example (assuming your local spark is in /opt and your
 project is in Documents/myproject):
 
 	sudo cp /opt/spark/lib/Spark.jar /home/username/Documents/myproject/lib
 	
-3. In the project's folder run SBT assembly
+3.- In the project's folder run SBT assembly
 
 	sbt assembly
 	
-4. I strongly recommend that you upload the data folder to HDFS if you want to use the 
+4.- I strongly recommend that you upload the data folder to HDFS if you want to use the 
 example given data in cluster mode, or you'll going to have to copy the project folder to the other datanodes. 
 To do so use (to place it in the root folder):
 
 	hadoop fs -put data/ /
 	
-4. If you are using Spark in cluster (with Mesos) mode you can use spark-submit to run the code (in the examples
+5.- If you are using Spark in cluster (with Mesos) mode you can use spark-submit to run the code (in the examples
 I give an example with Apache Mesos a generic domain, please change the master according to your
 master domain. 
 
 	spark-submit target/scala-2.10/spark-hash.jar
 	
-5. To run it in local mode, just comment the setMaster(Globals.masterSpark) and uncomment the 
+6.- To run it in local mode, just comment the setMaster(Globals.masterSpark) and uncomment the 
 set.Master("local") line.
 
-6. If you want tu use the default Spark distribution in the maven repositories just add to the 
+- If you want tu use the default Spark distribution in the maven repositories just add to the 
 build.sbt the following lines in the libraryDependencies section, with provided if you have
 uploaded your spark dist to HDFS, and without it if you have not:
 
 	"org.apache.spark" % "spark-core_2.10" % "1.3.1" % "provided",
 	"org.apache.spark" %% "spark-sql"  % "1.3.1" % "provided"
 
-Example DataH
+Example Data
 -----
 We executed some nmap probes and now would like to group IP addresses with similar sets of exposed ports. An small example of this dataset has been provided in data/sample.dat for illustration. 
 
