@@ -255,12 +255,14 @@ This is implemented in the JaccardTry.scala file
 	val nv = Vectors.sparse(65535, np.map(x => (x, 1.0))).asInstanceOf[SparseVector]
 	
 	//use jaccard score of 0.50 across the entire cluster. This may be a bit harsh for large tests.
-	scala> val sim = lsh.compute(nv, model, 0.50)
+	val sim = lsh.compute(nv, model, 0.50)
 	
-	scala> sim.count()
-	res6: Long = 5
+	println(sim.count())
 	
-	scala> sim.collect().foreach(println)
+	sim.collect().foreach(println)
+	
+Result:
+	
 	(9,List((65535,[21,22,23,80,2000,3389,8000],[1.0,1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,22,23,80,2000,3389],[1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,23,80,2000,8443],[1.0,1.0,1.0,1.0,1.0])))
 	(4,List((65535,[21,23,80,81,2000],[1.0,1.0,1.0,1.0,1.0]), (65535,[21,23,80,2000,8081],[1.0,1.0,1.0,1.0,1.0]), (65535,[21,23,80,2000,8443],[1.0,1.0,1.0,1.0,1.0])))
 	(5,List((65535,[21,22,23,80,1723,2000,8000],[1.0,1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,22,23,80,1723,2000],[1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,23,80,2000,8443],[1.0,1.0,1.0,1.0,1.0])))
