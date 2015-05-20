@@ -245,7 +245,7 @@ Result:
 
 - To sampled (50%) and spread over 8 partitions:
 
-	 spark-submit --class="spark.hash.OpenPortApp" target/scala-2.10/spark-hash.jar hdfs://master.mcbo.mood.com.ve:8020/data/sample.dat 8 0.5
+	spark-submit --class="spark.hash.OpenPortApp" target/scala-2.10/spark-hash.jar hdfs://master.mcbo.mood.com.ve:8020/data/sample.dat 8 0.5
 
 	
 ### Spark REPL
