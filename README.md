@@ -273,16 +273,7 @@ Result:
 	(6,List((65535,[21,22,23,53,80,2000,8000],[1.0,1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,22,23,53,80,2000],[1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,23,80,2000,8443],[1.0,1.0,1.0,1.0,1.0])))
 	(7,List((65535,[21,22,23,80,554,2000],[1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,22,23,80,554,2000,8000],[1.0,1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,23,80,2000,8443],[1.0,1.0,1.0,1.0,1.0])))
 
-   
-### Finding the largest cluster
 
-	//by count
-	model.clusters.sortBy(_._2.size, false).map(x => (x._1, x._2.size)).take(5).foreach(println)
-	
-	//retrieve underlying data
-	model.clusters.sortBy(_._2.size, false).take(5).foreach(println)
-	
-	
 ### Tuning Results
 As described in the MMDS book, LSH can be tuned by adjusting the number of rows and bands such that:
 
