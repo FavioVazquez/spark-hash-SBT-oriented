@@ -10,11 +10,31 @@ spark-hash
 Locality sensitive hashing for [Apache Spark](http://spark.apache.org/).
 This implementation was largely based on the algorithm described in chapter 3 of [Mining of Massive Datasets](http://mmds.org/) with some modifications for use in spark.
 
+SBT environment
+==============================
+
+The steps to use this repo with SBT are the following:
+
+- Make sure you have the latest sbt installed. For Ubuntu and other Debian-based distributions
+
+Ubuntu and other Debian-based distributions use the DEB format, but usually you don’t install
+your software from a local DEB file. Instead they come with package managers both for the 
+command line (e.g. apt-get, aptitude) or with a graphical user interface (e.g. Synaptic).
+Run the following from the terminal to install sbt (You’ll need superuser privileges to do so, 
+hence the sudo).
+
+	echo "deb http://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+	sudo apt-get update
+	sudo apt-get install sbt
+
+	
+
 Example Data
 -----
 We executed some nmap probes and now would like to group IP addresses with similar sets of exposed ports. An small example of this dataset has been provided in data/sample.dat for illustration. 
 
-As part of the preprocessing which was performed on nmap xml files, we flattened IP addresses with identical port sets. The flattening did not factor the time when the port was open. This processing resulted in the following dataset which is highlighted with the Spark REPL in local mode:
+As part of the preprocessing which was performed on nmap xml files, we flattened IP addresses with identical port sets. The flattening did not factor the time when the port was open. 
+This processing resulted in the following dataset which is highlighted with the Spark REPL in local mode:
 
 	bash$ ./shell_local.sh
 	scala> val port_set : org.apache.spark.rdd.RDD[(List[Int], Int)] = sc.objectFile("data/sample.dat")
