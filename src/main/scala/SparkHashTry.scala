@@ -8,7 +8,7 @@ object SparkHashTry {
 def main(args: Array[String]) {
 
   val conf = new SparkConf()
-    .setMaster("local")
+//    .setMaster("local")
     //      .setMaster(Globals.masterSpark)
     .setAppName("Spark-Hash")
   val sc = new SparkContext(conf)
