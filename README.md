@@ -253,6 +253,8 @@ This is implemented in the JaccardTry.scala file, to run:
 
 	spark-submit --class="spark.hash.JaccardTry" target/scala-2.10/spark-hash.jar 
 
+---
+
 	val np = List(21, 23, 80, 2000, 8443)
 	val nv = Vectors.sparse(65535, np.map(x => (x, 1.0))).asInstanceOf[SparseVector]
 	
