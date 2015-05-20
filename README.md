@@ -222,8 +222,6 @@ The previously described data can easily be converted into Spark's SparseVector 
 
 - *minClusterSize* - a post processing filter function that excludes clusters below a threshold.
 
-There are two ways to execute LSH. The first being a driver class that is submitted to a spark cluster (can be a single machine running in local mode). The second is using spark's REPL. The later is useful for parameter tuning. 
-
 
 ### Driver Class
 
