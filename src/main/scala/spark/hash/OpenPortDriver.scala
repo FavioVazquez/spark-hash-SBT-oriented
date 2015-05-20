@@ -1,4 +1,4 @@
-package com.invincea.spark.hash
+package spark.hash
 
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._

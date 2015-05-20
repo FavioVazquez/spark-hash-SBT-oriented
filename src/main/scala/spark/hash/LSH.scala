@@ -1,4 +1,4 @@
-package com.invincea.spark.hash
+package spark.hash
 
 import org.apache.spark.mllib.linalg.SparseVector
 import org.apache.spark.rdd.RDD

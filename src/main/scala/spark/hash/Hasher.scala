@@ -1,4 +1,4 @@
-package com.invincea.spark.hash
+package spark.hash
 
 import scala.util.Random
 import org.apache.spark.mllib.linalg.SparseVector

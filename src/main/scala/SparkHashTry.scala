@@ -37,6 +37,10 @@ def main(args: Array[String]) {
   port_set_filtered.sortBy(_._2, false).take(5).foreach(println)
   println("===========================")
 
+//  Show the top three port sets by set size:
+  port_set.sortBy(_._1.size,false).take(3).foreach(println)
+
+
 
 
 

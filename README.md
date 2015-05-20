@@ -133,7 +133,10 @@ Result:
 
 Show the top three port sets by set size:
 
-	scala> port_set.sortBy(_._1.size, false).take(3).foreach(println)
+	port_set.sortBy(_._1.size, false).take(3).foreach(println)
+	
+Result:
+	
 	(List(13, 21, 37, 80, 113, 443, 1025, 1026, 1027, 2121, 3000, 5000, 5101, 5631),1)
 	(List(21, 80, 443, 1723, 3306, 5800, 5900, 8081, 49152, 49153, 49154, 49155),1)
 	(List(21, 22, 26, 80, 110, 143, 443, 465, 587, 993, 995, 3306),3)
@@ -144,7 +147,7 @@ Implementation Details
 
 Implementation of LSH follows the rough steps
 
-1. minhash each vector some number of times. The number of times to hash is an input parameter. The hashing function is defined in com.invincea.spark.hash.Hasher. Essentially each element of the input vector is hashed and the minimum hash value for the vector is returned. Minhashing produces a set of signatures for each vector. 
+1. minhash each vector some number of times. The number of times to hash is an input parameter. The hashing function is defined in Hasher. Essentially each element of the input vector is hashed and the minimum hash value for the vector is returned. Minhashing produces a set of signatures for each vector.
 2. Chop up each vector's minhash signatures into bands where each band contains an equal number of signatures. Bands with a greater number of signatures will produce clusters with *greater* similarity. A greater number of bands will increase the probabilty that similar vector signatures  hash to the same value.
 3. Order each of the vector bands such that for each band the vector's data for that band are grouped together. 
 4. Hash each band and group similar values. These similar values for a given band that hash to the same value are added to the result set.
@@ -296,7 +299,7 @@ As described in the MMDS book, LSH can be tuned by adjusting the number of rows 
 	
 Naturally, the number of rows, bands, and the resulting size of the band (rows/bands) dictates the quality of results yielded by LSH. Higher thresholds produces clusters with higher similarity. Lower thresholds typically produce more clusters but sacrifices similarity. 
 
-Regardless of parameters, it may be good to independently verify each cluster. One such verification method is to calculate the jaccard similarity of the cluster (it is a set of sets). Implementation of jaccard similarity is provided in com.invincea.spark.hash.LSH.jaccard.
+Regardless of parameters, it may be good to independently verify each cluster. One such verification method is to calculate the jaccard similarity of the cluster (it is a set of sets). Implementation of jaccard similarity is provided in LSH.jaccard.
 
  
 	
