@@ -47,20 +47,20 @@ object OpenPortApp {
       println("samples: " + sample.count())
       println("clusters: " + model.clusters.count())
       
-//      //-- generate a CSV of the results
-//      //-- cluster original points with scores
-//      val points_clustered_scores = points.join(model.vector_cluster).map(x => (x._2._2, x._2._1)).groupByKey().join(model.scores)
-//
-//      //--port list union, cluster size, # ip addresses,
-//      val score_coverage_size = points_clustered_scores.map(x => (x._2._2,x._2._1.foldLeft(List())((a1, b1) => a1.union(b1._1.asInstanceOf[List[Nothing]])).distinct.size, x._2._1.size, x._2._1.foldLeft(0)((a,b) => a + b._2))).collect()
-//
-//      //write out the results
-//      val writer = new PrintWriter(new File("results.csv" ))
-//      writer.write("score,port_coverage,cluster_size,num_ips\n")
-//      score_coverage_size.foreach(x => writer.write(x._1 + "," + x._2 + "," + x._3 + "," + x._4 +"\n"))
-//
-//      writer.flush
-//      writer.close
+      //-- generate a CSV of the results
+      //-- cluster original points with scores
+      val points_clustered_scores = points.join(model.vector_cluster).map(x => (x._2._2, x._2._1)).groupByKey().join(model.scores)
+
+      //--port list union, cluster size, # ip addresses,
+      val score_coverage_size = points_clustered_scores.map(x => (x._2._2,x._2._1.foldLeft(List())((a1, b1) => a1.union(b1._1.asInstanceOf[List[Nothing]])).distinct.size, x._2._1.size, x._2._1.foldLeft(0)((a,b) => a + b._2))).collect()
+
+      //write out the results
+      val writer = new PrintWriter(new File("results.csv" ))
+      writer.write("score,port_coverage,cluster_size,num_ips\n")
+      score_coverage_size.foreach(x => writer.write(x._1 + "," + x._2 + "," + x._3 + "," + x._4 +"\n"))
+
+      writer.flush
+      writer.close
 
       sc.stop()
 
