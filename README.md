@@ -71,7 +71,7 @@ with identical port sets. The flattening did not factor the time when the port w
 
 To run SparkHashTry you have to specify the class in the spark-submit (if running in cluster mode)
 
-	spark-submit --class="SparkHashTry" target/scala-2.10/spark-hash.jar
+	spark-submit --class="spark.hash.SparkHashTry" target/scala-2.10/spark-hash.jar
 	
 
 In the SparkHashTry example we explore the data, and later we will use the Hasher and LSH to
@@ -246,30 +246,10 @@ Result:
 
 		spark-submit --class="spark.hash.OpenPortApp" target/scala-2.10/spark-hash.jar hdfs://master.mcbo.mood.com.ve:8020/data/sample.dat 8 0.5
 
-	
-### Spark REPL
 
-	bash$ ./shell_local.sh
-	spark>
-	import com.invincea.spark.hash.{LSH, LSHModel}
-	import org.apache.spark.mllib.linalg.{Vector, Vectors, SparseVector}
-	import org.apache.spark.mllib.linalg.{Matrix, Matrices}
-
-
-	val port_set : org.apache.spark.rdd.RDD[(List[Int], Int)] = sc.objectFile("data/sample.dat")
-	port_set.repartition(8)
-	val port_set_filtered = port_set.filter(tpl => tpl._1.size > 3)
-		
-	val vctr = port_set_filtered.map(r => (r._1.map(i => (i, 1.0)))).map(a => Vectors.sparse(65535, a).asInstanceOf[SparseVector])
-
-
-	val lsh = new  LSH(data = vctr, p = 65537, m = 1000, numRows = 1000, numBands = 25, minClusterSize = 2)
-	val model = lsh.run
-	
-	spark> model.clusters.count()
-	res3: Long = 80648
-	
 ### Finding similar sets for a new point
+
+This is implemented in the JaccardTry.scala file
 
 	val np = List(21, 23, 80, 2000, 8443)
 	val nv = Vectors.sparse(65535, np.map(x => (x, 1.0))).asInstanceOf[SparseVector]
@@ -287,24 +267,7 @@ Result:
 	(6,List((65535,[21,22,23,53,80,2000,8000],[1.0,1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,22,23,53,80,2000],[1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,23,80,2000,8443],[1.0,1.0,1.0,1.0,1.0])))
 	(7,List((65535,[21,22,23,80,554,2000],[1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,22,23,80,554,2000,8000],[1.0,1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,23,80,2000,8443],[1.0,1.0,1.0,1.0,1.0])))
 
-### Spark REPL (cluster mode)
-
-	bash$ ./shell_cluster.sh
-	import org.apache.spark.SparkContext
-	import org.apache.spark.SparkContext._
-	import org.apache.spark.SparkConf
-	import org.apache.spark.mllib.linalg.{Vectors, SparseVector}
-	import java.io._
-	import com.invincea.spark.hash.{LSH, LSHModel}
-
-	val port_set : org.apache.spark.rdd.RDD[(List[Int], Int)] = sc.objectFile("sample.dat").repartition(320)
-	val port_set_filtered = port_set.filter(tpl => tpl._1.size >= 3)
-	val points = port_set.zipWithIndex().map(x => x.swap)
-	val vctr = port_set.map(r => (r._1.map(i => (i, 1.0)))).map(a => Vectors.sparse(65535, a).asInstanceOf[SparseVector])
-	
-	val lsh = new LSH(data = vctr, p = 65537, m = 1000, numRows = 2000, numBands = 100, minClusterSize = 2)
-    val model = lsh.run
-    
+   
 ### Finding the largest cluster
 
 	//by count

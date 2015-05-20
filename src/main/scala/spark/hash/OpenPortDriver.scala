@@ -1,11 +1,10 @@
 package spark.hash
 
 import org.apache.spark.SparkContext
-import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
 import org.apache.spark.mllib.linalg.{Vectors, SparseVector}
 import java.io._
-import globals.Globals
+import Globals
 
 object OpenPortApp {
     def main(args: Array[String]) {
@@ -22,8 +21,8 @@ object OpenPortApp {
 
       //spark job setup
       val conf = new SparkConf().setAppName("Open Port LSH")
-        .setMaster("local")
-//        .setMaster(Globals.masterSpark)
+//        .setMaster("local")
+        .setMaster(Globals.masterSpark)
       val sc = new SparkContext(conf)
 
       //read data file in as a RDD, partition RDD across <partitions> cores  
