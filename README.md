@@ -59,7 +59,7 @@ uploaded your spark dist to HDFS, and without it if you have not:
 	"org.apache.spark" % "spark-core_2.10" % "1.3.1" % "provided",
 	"org.apache.spark" %% "spark-sql"  % "1.3.1" % "provided"
 
-Example Data
+Example DataH
 -----
 We executed some nmap probes and now would like to group IP addresses with similar sets of exposed ports. An small example of this dataset has been provided in data/sample.dat for illustration. 
 
