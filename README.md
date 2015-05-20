@@ -227,12 +227,26 @@ There are two ways to execute LSH. The first being a driver class that is submit
 
 ### Driver Class
 
-Executing a driver in local mode. This executes com.invincea.sparki.hash.OpenPortDriver and saves the resulting cluster output to the file results.csv. In this case 50% of the data is sampled and spread over 8 partitions. For normal use the driver will need to be modified to handle data load, requisite transforms, and parameter tuning. Also, for some datasets it may not be practical to save all results to a local driver.
+Executing a driver in local mode. This executes spark.hash.OpenPortDriver and saves the
+resulting cluster output to the file results.csv. In this case 50% of the data is sampled
+and spread over 8 partitions. For normal use the driver will need to be modified to handle
+data load, requisite transforms, and parameter tuning. Also, for some datasets it may not be 
+practical to save all results to a local driver.
 
-	bash$ ./run_local.sh
+- To run in local mode comment the setMaster(Globals.masterSpark) line and uncomment the 
+setMaster("local"). Then:
+
+
+	spark-submit --class="spark.hash.OpenPortApp" target/scala-2.10/spark-hash.jar hdfs://master.mcbo.mood.com.ve:8020/data/sample.dat
+
+Result:
+
 	Usage: OpenPortApp <file> <partitions> <data_sample>
-	
-	bash$ ./run_local.sh data/sample.dat 8 0.5
+
+- To sampled (50%) and spread over 8 partitions:
+
+	 spark-submit --class="spark.hash.OpenPortApp" target/scala-2.10/spark-hash.jar hdfs://master.mcbo.mood.com.ve:8020/data/sample.dat 8 0.5
+
 	
 ### Spark REPL
 

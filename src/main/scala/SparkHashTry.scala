@@ -5,6 +5,7 @@ import globals.Globals
 /**
  * Created by Favio on 20/05/15.
  */
+
 object SparkHashTry {
 def main(args: Array[String]) {
 
