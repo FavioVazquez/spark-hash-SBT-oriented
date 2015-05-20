@@ -4,7 +4,6 @@ import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 import org.apache.spark.mllib.linalg.{Vectors, SparseVector}
 import java.io._
-import Globals
 
 object OpenPortApp {
     def main(args: Array[String]) {
@@ -62,7 +61,7 @@ object OpenPortApp {
       
       writer.flush
       writer.close
-      
+
       sc.stop()
 
     }
