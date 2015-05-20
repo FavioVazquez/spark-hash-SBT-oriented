@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 $SPARK_HOME/bin/spark-shell \
   --master yarn-client \
   --num-executors 8 \
