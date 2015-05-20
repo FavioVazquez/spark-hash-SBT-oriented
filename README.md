@@ -57,6 +57,7 @@ build.sbt the following lines in the libraryDependencies section, with provided 
 uploaded your spark dist to HDFS, and without it if you have not:
 
 	"org.apache.spark" % "spark-core_2.10" % "1.3.1" % "provided"
+	
 	"org.apache.spark" %% "spark-sql"  % "1.3.1" % "provided"
 
 Example Data
