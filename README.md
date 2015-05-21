@@ -205,7 +205,7 @@ For each band, hash each of 10 element signatures.
 
 Group identical values within each band. This correspond to the similar clusters. In the above example, only two vectors (1 and 2) are deemed similar.
 
-	scala> model.clusters.foreach(println)
+	model.clusters.foreach(println)
 	(0,CompactBuffer((65535,[21,25,80,110,143,443],[1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,25,80,110,143,443,8080],[1.0,1.0,1.0,1.0,1.0,1.0,1.0])))
 
 
