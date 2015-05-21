@@ -36,11 +36,13 @@ object JaccardTry {
     //  use jaccard score of 0.50 across the entire cluster. This may be a bit harsh for large tests.
     val sim = lsh.compute(nv, model, 0.50)
 
+    println(sim.count())
+
     sim.collect().foreach(println)
 
 //    Optional writing to HDFS (Remember to change the default domain)
 
-    sim.coalesce(1).saveAsTextFile(Globals.masterHDFS+"jaccardResult")
+    sim.saveAsTextFile(Globals.masterHDFS+"jaccardResult")
 
     sc.stop()
   }
