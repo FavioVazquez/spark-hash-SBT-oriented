@@ -1,7 +1,7 @@
 Disclaimer
 ==============================
 This is my version of mrsqueeze's spark-hash but SBT oriented, all the credit of code and logic goes to him. This uses the sbt environment instead of the maven's environment.
-The original repo is in @mrsqueeze github, https://github.com/mrsqueeze/spark-hash
+The original repo is in [@mrsqueeze](https://github.com/mrsqueeze/) github, https://github.com/mrsqueeze/spark-hash
 
 *Note* = In Globals.scala you should change the default domains to your
 master spark domain (if using mesos) and your HDFS master domain. 
@@ -17,7 +17,7 @@ SBT environment
 
 The steps to use this repo with SBT are the following:
 
-1.- Make sure you have the latest sbt installed. For Ubuntu and other Debian-based distributions
+1.- Make sure you have the latest sbt installed. For Ubuntu and other Debian-based distributions:
 
 Ubuntu and other Debian-based distributions use the DEB format, but usually you don’t install
 your software from a local DEB file. Instead they come with package managers both for the 
@@ -205,7 +205,7 @@ For each band, hash each of 10 element signatures.
 
 Group identical values within each band. This correspond to the similar clusters. In the above example, only two vectors (1 and 2) are deemed similar.
 
-	scala> model.clusters.foreach(println)
+	model.clusters.foreach(println)
 	(0,CompactBuffer((65535,[21,25,80,110,143,443],[1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,25,80,110,143,443,8080],[1.0,1.0,1.0,1.0,1.0,1.0,1.0])))
 
 
@@ -264,7 +264,8 @@ This is implemented in the JaccardTry.scala file, to run:
 	println(sim.count())
 	
 	sim.collect().foreach(println)
-	
+---
+
 Result:
 	
 	(9,List((65535,[21,22,23,80,2000,3389,8000],[1.0,1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,22,23,80,2000,3389],[1.0,1.0,1.0,1.0,1.0,1.0]), (65535,[21,23,80,2000,8443],[1.0,1.0,1.0,1.0,1.0])))

@@ -46,7 +46,7 @@ object OpenPortApp {
 
       println("samples: " + sample.count())
       println("clusters: " + model.clusters.count())
-      
+
       //-- generate a CSV of the results
       //-- cluster original points with scores
       val points_clustered_scores = points.join(model.vector_cluster).map(x => (x._2._2, x._2._1)).groupByKey().join(model.scores)
