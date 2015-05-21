@@ -38,6 +38,10 @@ object JaccardTry {
 
     sim.collect().foreach(println)
 
+//    Optional writing to HDFS (Remember to change the default domain)
+
+    sim.coalesce(1).saveAsTextFile(Globals.masterHDFS+"jaccardResult")
+
     sc.stop()
   }
 }
