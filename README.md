@@ -3,7 +3,7 @@ Disclaimer
 This is my version of mrsqueeze's spark-hash but SBT oriented, all the credit of code and logic goes to him. This uses the sbt environment instead of the maven's environment.
 The original repo is in [@mrsqueeze](https://github.com/mrsqueeze/) github, https://github.com/mrsqueeze/spark-hash
 
-*Note* = In Globals.scala you should change the default domains to your
+**Note** = In Globals.scala you should change the default domains to your
 master spark domain (if using mesos) and your HDFS master domain. 
 
 spark-hash
