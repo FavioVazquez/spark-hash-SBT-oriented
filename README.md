@@ -45,11 +45,9 @@ To do so use (to place it in the root folder):
 
 	hadoop fs -put data/ /
 	
-5.- If you are using Spark in cluster (with Mesos) mode you can use spark-submit to run the code (in the examples
-I give an example with Apache Mesos my domain and also my HDFS domain, please change the master according to your
-master domain. 
+5.- If you are using Spark in cluster (with Mesos) mode you can use spark-submit to run the code (in the Globals is defined  a generic domain for Spark Master using Apache Mesos and and also a generic HDFS domain, please change the masters according to your personalized domain): 
 
-	spark-submit target/scala-2.10/spark-hash.jar
+	spark-submit --class="package.classname" target/scala-2.10/spark-hash.jar
 	
 6.- To run it in local mode, just comment the setMaster(Globals.masterSpark) and uncomment the 
 set.Master("local") line.
