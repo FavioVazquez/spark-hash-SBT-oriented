@@ -6,11 +6,15 @@ The original repo is in [@mrsqueeze](https://github.com/mrsqueeze/) github, http
 **Note** = In Globals.scala you should change the default domains to your
 master spark domain (if using mesos) and your HDFS master domain. 
 
+#### Project's GitHub pages: http://faviovazquez.github.io/spark-hash-SBT-oriented
+
 spark-hash
 ==============================
 
 Locality sensitive hashing for [Apache Spark](http://spark.apache.org/).
 This implementation was largely based on the algorithm described in chapter 3 of [Mining of Massive Datasets](http://mmds.org/) with some modifications for use in spark.
+
+##### Please enter in the [Project's GitHub pages](http://faviovazquez.github.io/spark-hash-SBT-oriented) for more information :)
 
 SBT environment
 ==============================
