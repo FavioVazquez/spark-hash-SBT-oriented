@@ -44,6 +44,7 @@ object JaccardTry {
 
     sim.saveAsTextFile(Globals.masterHDFS+"jaccardResult")
 
+//    stop the driver
     sc.stop()
   }
 }

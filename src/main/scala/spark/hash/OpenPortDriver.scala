@@ -62,6 +62,7 @@ object OpenPortApp {
       writer.flush
       writer.close
 
+//    stop the driver
       sc.stop()
 
     }
