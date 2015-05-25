@@ -42,7 +42,7 @@ def main(args: Array[String]) {
 //  Show the top three port sets by set size:
   port_set.sortBy(_._1.size,false).take(3).foreach(println)
 
-
+//    stop the driver
   sc.stop()
   }
 }
