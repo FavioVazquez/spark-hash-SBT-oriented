@@ -13,7 +13,7 @@ object JaccardTry {
     val conf = new SparkConf()
       //    .setMaster("local")
       .setMaster(Globals.masterSpark)
-      .setAppName("Spark-Hash")
+      .setAppName("Jaccard-Try")
       .set("spark.executor.memory", "10g")
 
     val sc = new SparkContext(conf)
@@ -36,7 +36,13 @@ object JaccardTry {
     //  use jaccard score of 0.50 across the entire cluster. This may be a bit harsh for large tests.
     val sim = lsh.compute(nv, model, 0.50)
 
+    println(sim.count())
+
     sim.collect().foreach(println)
+
+//    Optional writing to HDFS (Remember to change the default domain)
+
+    sim.saveAsTextFile(Globals.masterHDFS+"jaccardResult")
 
     sc.stop()
   }

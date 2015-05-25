@@ -3,14 +3,18 @@ Disclaimer
 This is my version of mrsqueeze's spark-hash but SBT oriented, all the credit of code and logic goes to him. This uses the sbt environment instead of the maven's environment.
 The original repo is in [@mrsqueeze](https://github.com/mrsqueeze/) github, https://github.com/mrsqueeze/spark-hash
 
-*Note* = In Globals.scala you should change the default domains to your
+**Note** = In Globals.scala you should change the default domains to your
 master spark domain (if using mesos) and your HDFS master domain. 
+
+#### Project's GitHub pages: http://faviovazquez.github.io/spark-hash-SBT-oriented
 
 spark-hash
 ==============================
 
 Locality sensitive hashing for [Apache Spark](http://spark.apache.org/).
 This implementation was largely based on the algorithm described in chapter 3 of [Mining of Massive Datasets](http://mmds.org/) with some modifications for use in spark.
+
+##### Please enter in the [Project's GitHub pages](http://faviovazquez.github.io/spark-hash-SBT-oriented) for more information :)
 
 SBT environment
 ==============================
@@ -45,11 +49,9 @@ To do so use (to place it in the root folder):
 
 	hadoop fs -put data/ /
 	
-5.- If you are using Spark in cluster (with Mesos) mode you can use spark-submit to run the code (in the examples
-I give an example with Apache Mesos my domain and also my HDFS domain, please change the master according to your
-master domain. 
+5.- If you are using Spark in cluster (with Mesos) mode you can use spark-submit to run the code (in the Globals is defined  a generic domain for Spark Master using Apache Mesos and and also a generic HDFS domain, please change the masters according to your personalized domain): 
 
-	spark-submit target/scala-2.10/spark-hash.jar
+	spark-submit --class="package.classname" target/scala-2.10/spark-hash.jar
 	
 6.- To run it in local mode, just comment the setMaster(Globals.masterSpark) and uncomment the 
 set.Master("local") line.
