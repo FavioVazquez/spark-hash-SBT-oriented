@@ -5,6 +5,10 @@ import org.apache.spark.rdd.RDD
 import scala.collection.mutable.ListBuffer
 import org.apache.spark.SparkContext._
 
+/**
+ * Re-Created by Favio on 20/05/15.
+ */
+
 class LSH(data : RDD[SparseVector], p : Int, m : Int, numRows : Int, numBands : Int, minClusterSize : Int) extends Serializable {
   
   /** run LSH using the constructor parameters */
