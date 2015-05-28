@@ -1,4 +1,4 @@
-name := "spark-hash"
+name := "spark-hash-SBT-oriented"
 
 version := "0.1.5"
 
