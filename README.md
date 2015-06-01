@@ -147,7 +147,7 @@ Result:
 
 
 Implementation Details
-----
+-----
 
 Implementation of LSH follows the rough steps
 
@@ -228,6 +228,7 @@ The previously described data can easily be converted into Spark's SparseVector 
 
 
 ### Driver Class
+------
 
 Executing a driver in local mode. This executes spark.hash.OpenPortDriver and saves the
 resulting cluster output to the file results.csv. In this case 80% of the data is sampled
@@ -250,6 +251,7 @@ Result:
 
 
 ### Finding similar sets for a new point
+-------
 
 This is implemented in the JaccardTry.scala file, to run:
 
@@ -278,6 +280,8 @@ Result:
 
 
 ### Tuning Results
+---------
+
 As described in the MMDS book, LSH can be tuned by adjusting the number of rows and bands such that:
 
 	threshold = Math.pow(1/bands),(1/(rows/bands))
