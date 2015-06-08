@@ -7,8 +7,9 @@ The original repo is in [@mrsqueeze](https://github.com/mrsqueeze/) github, http
 master spark domain (if using mesos) and your HDFS master domain. 
 
 #### Project's GitHub pages: http://faviovazquez.github.io/spark-hash-SBT-oriented
+----------------------------------------------------------------------
 
-spark-hash
+Spark-Hash
 ==============================
 
 Locality sensitive hashing for [Apache Spark](http://spark.apache.org/).
