@@ -4,6 +4,10 @@ import scala.util.Random
 import org.apache.spark.mllib.linalg.SparseVector
 
 /**
+ * Re-Created by Favio on 20/05/15.
+ */
+
+/**
  * simple hashing function. defined by ints a, b, p, m 
  * where a and b are seeds with a > 0.
  * p is a prime number, >= u (largest item in the universe)

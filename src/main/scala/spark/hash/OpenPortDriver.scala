@@ -5,6 +5,10 @@ import org.apache.spark.SparkConf
 import org.apache.spark.mllib.linalg.{Vectors, SparseVector}
 import java.io._
 
+/**
+ * Created by Favio on 20/05/15.
+ */
+
 object OpenPortApp {
     def main(args: Array[String]) {
       

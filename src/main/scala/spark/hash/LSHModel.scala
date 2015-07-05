@@ -5,6 +5,9 @@ import org.apache.spark.rdd.RDD
 import scala.collection.mutable.ListBuffer
 import org.apache.spark.SparkContext._
 
+/**
+ * Re-Created by Favio on 20/05/15.
+ */
 
 class LSHModel(p : Int, m : Int, numRows : Int) extends Serializable {
   
